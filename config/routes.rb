@@ -4,4 +4,5 @@ Rails.application.routes.draw do
   get 'todo/list' => 'todo#list'
   post 'todo/add' => 'todo#add'
   post 'todo/update_status' => 'todo#update_status'
+  post 'todo/delete' => 'todo#delete'
 end

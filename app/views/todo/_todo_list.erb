@@ -22,7 +22,7 @@
 									return <tr>
 												<td><input type="checkbox" defaultChecked={l.done} onChange={this.handleChange(l.id)}/></td>
 												<td>{l.do}</td>
-												<td></td>
+												<td><span onCLick={this.delete(l.id)} className="glyphicon glyphicon-remove text-danger"></span></td>
 											</tr>
 								},this) }
 						</tbody>
@@ -36,6 +36,11 @@
 		},
 		handleChange: function(id){
 			$.post('/todo/update_status',{todo_id:id},function(data,error){
+				this.update();
+			}.bind(this))
+		},
+		delete: function(id){
+			$.post('/todo/delete',{todo_id:id},function(data,error){
 				this.update();
 			}.bind(this))
 		}

@@ -12,7 +12,8 @@ class TodoController < ApplicationController
 	end
 
 	def delete
-
+		Todo.delete(params[:todo_id])
+		render :json => {status: 1 , message:"success"}
 	end
 
 	def update_status
