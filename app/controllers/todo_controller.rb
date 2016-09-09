@@ -16,7 +16,7 @@ class TodoController < ApplicationController
 	end
 
 	def update_status
-		todo =Todo.find(parms[:todo_id])
+		todo =Todo.find(params[:todo_id])
 		todo.update(done: !tode.done)
 		render :json => {status: 1 , message:"success"}
 	end
