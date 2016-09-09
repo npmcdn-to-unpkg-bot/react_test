@@ -8,12 +8,15 @@
 			<div className="col-sm-6 col-sm-offset-3">
 			<div className="panel panel-default ">
 				<div className="panel-body">
-					<TodoList/>
-					<TodoAdd/>
+					<TodoList ref="list"/>
+					<TodoAdd handleToDoAdded={this.handleTodoAdded}/>
 				</div>
 			</div>
 			</div>
 			);
+		},
+		handleTodoAdded: function(){
+			this.refs.list.update();
 		}
 	})
 	ReactDOM.render(<Todo/>,document.getElementById('target'))

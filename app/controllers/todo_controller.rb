@@ -7,6 +7,7 @@ class TodoController < ApplicationController
 	end
 
 	def add
-		
+		Todo.create(done: false,do: params[:todo])
+		render :json => {status: 1 , message:"success"}
 	end
 end
