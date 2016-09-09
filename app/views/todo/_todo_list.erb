@@ -4,7 +4,7 @@
 			return { data: [] };
 		},
 		componentDidMount: function() {
-      		this.update();
+      		
    		},
 		render: function(){
 		var data = this.state.data
@@ -22,6 +22,7 @@
 		},
 		update: function(){
 			$.get('/todo/list',function(data,error){
+				
 				this.setState({data:data})
 			}.bind(this))
 		},
