@@ -10,4 +10,11 @@ class TodoController < ApplicationController
 		Todo.create(done: false,do: params[:todo])
 		render :json => {status: 1 , message:"success"}
 	end
+
+	def delete
+	end
+
+	def update_status
+		
+	end
 end

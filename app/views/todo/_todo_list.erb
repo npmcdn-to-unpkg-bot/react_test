@@ -9,20 +9,29 @@
 		render: function(){
 		var data = this.state.data
 			return(
-				<div>
-					<ul className="list-group"> 
-
-						{ data.map(function(l){
-							return <li className="list-group-item" onClick={this.handleClick.bind(this,l.id)}>{l.do}</li>
-						},this) }
-
-					</ul>
-				</div>
+				<table className="table table-striped">
+						<thead>
+							<tr>
+								<th>Status</th>
+								<th>To do</th>
+								<th>Delete</th>
+							</tr>
+						</thead>
+						<tbody>
+							{ data.map(function(l){
+									return <tr onClick={this.handleClick.bind(this,l.id)}>
+												<td><input type="checkbox" value={l.done}></td>
+												<td>{l.todo}</td>
+												<td></td>
+											</tr>
+								},this) }
+						</tbody>
+					</table>
 			);
 		},
 		update: function(){
 			$.get('/todo/list',function(data,error){
-				
+
 				this.setState({data:data})
 			}.bind(this))
 		},
