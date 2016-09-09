@@ -20,9 +20,9 @@
 						<tbody>
 							{ data.map(function(l){
 									return <tr>
-												<td><input type="checkbox" defaultChecked={l.done} onChange={this.handleChange(l.id)}/></td>
+												<td><input type="checkbox" defaultChecked={l.done} onChange={this.handleChange.bind(this,l.id)}/></td>
 												<td>{l.do}</td>
-												<td><span onCLick={this.delete(l.id)} className="glyphicon glyphicon-remove text-danger"></span></td>
+												<td><span className="glyphicon glyphicon-remove text-danger" onCLick={this.delete.bind(this,l.id)}></span></td>
 											</tr>
 								},this) }
 						</tbody>
