@@ -12,6 +12,7 @@ class TodoController < ApplicationController
 	end
 
 	def delete
+		
 	end
 
 	def update_status
