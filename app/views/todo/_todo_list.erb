@@ -19,7 +19,7 @@
 						</thead>
 						<tbody>
 							{ data.map(function(l){
-									return <tr onClick={this.handleClick.bind(this,l.id)}>
+									return <tr>
 												<td><input type="checkbox" value={l.done}></td>
 												<td>{l.todo}</td>
 												<td></td>
@@ -31,12 +31,9 @@
 		},
 		update: function(){
 			$.get('/todo/list',function(data,error){
-
+				console.log(data);
 				this.setState({data:data})
 			}.bind(this))
-		},
-		handleClick: function(table_id , e){
-			this.props.handleClick(table_id);
 		}
 	})
 </script>
