@@ -1,0 +1,32 @@
+<script type="text/babel">
+	window.TodoList = React.createClass({
+		getInitialState: function(){
+			return { data: [] };
+		},
+		componentDidMount: function() {
+      		this.update();
+   		},
+		render: function(){
+		var data = this.state.data
+			return(
+				<div>
+					<ul className="list-group"> 
+
+						{ data.map(function(l){
+							return <li className="list-group-item" onClick={this.handleClick.bind(this,l.id)}>{l.do}</li>
+						},this) }
+
+					</ul>
+				</div>
+			);
+		},
+		update: function(){
+			$.get('/todo/list',function(data,error){
+				this.setState({data:data})
+			}.bind(this))
+		},
+		handleClick: function(table_id , e){
+			this.props.handleClick(table_id);
+		}
+	})
+</script>

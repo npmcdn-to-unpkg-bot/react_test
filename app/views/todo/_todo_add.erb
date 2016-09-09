@@ -1,0 +1,31 @@
+<script type="text/babel">
+	window.TodoAdd = React.createClass({
+		getInitialState: function(){
+			return { todo:''};
+		},
+		render: function(){
+		var data = this.state.data
+			return(
+			<div>
+				<div className="form-group">
+					<label className="cols-sm-2 control-label">To Do</label>
+					<div class="cols-sm-10">
+						<div class="input-group">
+							<input type="tel" class="form-control" placeholder="Enter To Do" value={this.state.todo} onChange={this.handleChange}/>
+						</div>
+					</div>
+				</div>
+				<a className="btn btn-default" onClick={this.create}>Add</a>
+			</div>
+				);
+		},
+		create: function(){
+			$.post('/todo/add',{todo:this.state.todo},function(data,error){
+				this.props.handleToDoAdded();
+			}.bind(this))
+		},
+		handleChange: function(event) {
+            this.setState({todo: event.target.value});
+        }
+	})
+</script>

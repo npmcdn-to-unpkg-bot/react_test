@@ -1,0 +1,17 @@
+<%= render 'todo/todo_add'%>
+<%= render 'todo/todo_list'%>
+<script type="text/babel">
+	window.Todo = React.createClass({
+		render: function(){
+		var data = this.state.data
+			return(
+			<div class="panel panel-default ">
+				<div class="panel-body">
+					<TodoList/>
+					<TodoAdd/>
+				</div>
+			</div>
+			);
+		}
+	})
+</script>
