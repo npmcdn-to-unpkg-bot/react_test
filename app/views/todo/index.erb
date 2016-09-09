@@ -1,5 +1,6 @@
 <%= render 'todo/todo_add'%>
 <%= render 'todo/todo_list'%>
+<div id="target"></div>
 <script type="text/babel">
 	window.Todo = React.createClass({
 		render: function(){
@@ -14,4 +15,5 @@
 			);
 		}
 	})
+	ReactDOM.render(<Todo/>,document.getElementById('target'))
 </script>
